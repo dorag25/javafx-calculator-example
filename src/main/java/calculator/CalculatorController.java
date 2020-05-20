@@ -38,21 +38,36 @@ public class CalculatorController {
         String operatorPressed = ((Button) event.getSource()).getText();
         System.out.println(operatorPressed);
         if (operatorPressed.equals("=")) {
-           if (operator.isEmpty()) {
-               return;
-           }
-           double number2 = Double.parseDouble(display.getText());
-           double result = calculator.calculate(number1, number2, operator);
-           display.setText(String.format("%.0f", result));
-           operator = "";
+            if (operator.isEmpty()) {
+                return;
+            }
+            double number2 = Double.parseDouble(display.getText());
+            double result = calculator.calculate(number1, number2, operator);
+            display.setText(String.format("%.0f", result));
+            operator = "";
         } else {
-            if (! operator.isEmpty()) {
+            if (!operator.isEmpty()) {
                 return;
             }
             number1 = Double.parseDouble(display.getText());
             operator = operatorPressed;
             startNumber = true;
         }
+    }
+
+    @FXML
+    public void processAC(ActionEvent event) {
+        String acPressed = ((Button) event.getSource()).getText();
+        System.out.println(acPressed);
+        display.setText("0");
+        operator = "";
+        number1 = 0;
+        startNumber = true;
+    }
+
+    @FXML
+    public void processPlusMinus(ActionEvent event) {
+
     }
 
 }

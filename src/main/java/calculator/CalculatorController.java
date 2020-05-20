@@ -61,12 +61,14 @@ public class CalculatorController {
         System.out.println(acPressed);
         display.setText("0");
         operator = "";
-        number1 = 0;
+        //number1 = 0;
         startNumber = true;
     }
 
     @FXML
     public void processPlusMinus(ActionEvent event) {
+        String plusminusPressed = ((Button) event.getSource()).getText();
+        System.out.println(plusminusPressed);
 
     }
 
